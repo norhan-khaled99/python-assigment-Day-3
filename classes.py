@@ -4,7 +4,7 @@ class Employee:
         self.salary = 0
 
     def drive(self, distance):
-        self.car.run(60, distance)  # assuming a default velocity of 60
+        self.car.run(60, distance) 
 
     def refuel(self, gasAmount=100):
         self.car.fuelRate += gasAmount
@@ -15,7 +15,7 @@ class Employee:
 class Car:
     def __init__(self):
         self.velocity = 0
-        self.fuelRate = 50  # assuming a default fuel rate of 50
+        self.fuelRate = 50  
 
     def run(self, velocity, distance):
         if velocity < 0 or velocity > 200:
@@ -24,8 +24,8 @@ class Car:
             self.stop()
             return
         self.velocity = velocity
-        self.fuelRate -= velocity / 10  # assuming a fuel consumption rate of 1L/10km
-        remain_distance = distance - (self.velocity * 1)  # assuming a time interval of 1 hour
+        self.fuelRate -= velocity / 10  
+        remain_distance = distance - (self.velocity * 1)  
         if remain_distance <= 0:
             self.stop()
         else:
@@ -76,9 +76,9 @@ class Office:
     def check_lateness(self, empId, moveHour):
         emp = self.get_employee(empId)
         if emp is not None:
-            targetHour = 9  # assuming the target arrival time is 9am
-            distance = 10  # assuming a distance of 10km
-            velocity = 60  # assuming a default velocity of 60
+            targetHour = 9 
+            distance = 10  
+            velocity = 60  
             if Office.calculate_lateness(targetHour, moveHour, distance, velocity):
                 emp.salary -= 10
                 print("Employee is late, salary has been deducted by 10")
